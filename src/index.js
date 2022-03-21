@@ -1,12 +1,32 @@
 import './style.css';
-import _, { map } from 'lodash';
 
-const newArr = _.map(['6', '8', '10', '11'], parseInt);
-console.log(newArr);
+const ul = document.querySelector('.todo');
 
-newArr.forEach((el) => {
-  const p = document.createElement('p');
-  p.classList.add('p');
-  p.innerText = `[${el}]`;
-  document.body.lastElementChild.appendChild(p);
-});
+const tasks = [
+  {
+    description: 'Work on the music project',
+    completed: true,
+    index: 0,
+  },
+  {
+    description: 'Go to the gym',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'Teach the kids programming',
+    completed: false,
+    index: 2,
+  },
+];
+
+function displayTask() {
+  tasks.forEach((task) => {
+    const li = document.createElement('li');
+    li.innerText = task.description;
+
+    ul.appendChild(li);
+  });
+}
+
+displayTask();
