@@ -67,7 +67,7 @@ body {
 .icon::before {
   content: '↵';
   position: absolute;
-  top: 0px;
+  top: 0;
   right: 29px;
   z-index: 2;
   font-size: 20px;
@@ -96,6 +96,14 @@ body {
   gap: 3%;
 }
 
+.edit {
+  background: #2564eb17;
+}
+
+.edit .text-content {
+  width: 100% !important;
+}
+
 .todo li .text-content {
   padding: 20px 0;
   width: 82%;
@@ -110,14 +118,6 @@ body {
 
 [contenteditable] {
   outline: none;
-}
-
-.edit {
-  background: #2564eb17;
-}
-
-.edit .text-content {
-  width: 100% !important;
 }
 
 .drag,
