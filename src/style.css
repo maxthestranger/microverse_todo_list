@@ -96,6 +96,10 @@ body {
   gap: 3%;
 }
 
+.line {
+  text-decoration: line-through;
+}
+
 .edit {
   background: #2564eb17;
 }
