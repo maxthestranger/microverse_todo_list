@@ -19,7 +19,7 @@ body {
 
 .wrapper {
   max-width: 500px;
-  width: 50%;
+  width: 70%;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   background: #fff;
   border-radius: 13px;
@@ -32,14 +32,131 @@ body {
   border-bottom: 1px solid #f1f1f1;
 }
 
+.error {
+  color: rgb(255, 70, 70);
+  font-size: 12px;
+}
+
+.p-4 {
+  padding: 10px 18px 0;
+}
+
+.input {
+  padding: 20px 18px;
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  border-bottom: 1px solid #f1f1f1;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  font-size: 14px;
+}
+
+.input::placeholder {
+  font-style: italic;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.icon {
+  position: relative;
+}
+
+.icon::before {
+  content: '↵';
+  position: absolute;
+  top: 0;
+  right: 29px;
+  z-index: 2;
+  font-size: 20px;
+  font-family: inherit;
+  font-weight: bold;
+  color: #858585;
+}
+
+.checkbox {
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 .todo {
   list-style: none;
 }
 
 .todo li {
-  padding: 20px 18px;
+  padding: 0 18px;
   border-bottom: 2px solid #f1f1f1;
   font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 3%;
+}
+
+.line {
+  text-decoration: line-through;
+}
+
+.edit {
+  background: #2564eb17;
+}
+
+.edit .text-content {
+  width: 100% !important;
+}
+
+.todo li .text-content {
+  padding: 20px 0;
+  width: 82%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-content span:first-child {
+  width: 100%;
+}
+
+[contenteditable] {
+  outline: none;
+}
+
+.drag,
+.delete {
+  font-size: 24px;
+  display: block;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.delete i,
+.drag i {
+  pointer-events: none;
+}
+
+.drag {
+  cursor: grab;
+}
+
+.delete {
+  display: none;
+  cursor: pointer;
+}
+
+.delete:hover,
+.drag:hover {
+  color: #2563eb;
+}
+
+.edit .delete {
+  display: block;
+}
+
+.edit .drag {
+  display: none;
 }
 
 .btn {

@@ -1,32 +1,35 @@
+// styles
+import 'boxicons/css/boxicons.min.css';
 import './style.css';
 
-const ul = document.querySelector('.todo');
+// modules
+import {
+  tasksList, input, ul, btn,
+} from './queries.js';
+import { renderTasks } from './displayTasks.js';
+import { createTask, editTask, removeTask } from './tasks.js';
+import { checkComplete, clearComplete } from './checks.js';
 
-const tasks = [
-  {
-    description: 'Work on the music project',
-    completed: true,
-    index: 0,
-  },
-  {
-    description: 'Go to the gym',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Teach the kids programming',
-    completed: false,
-    index: 2,
-  },
-];
+window.onload = () => {
+  // render initial listing
+  renderTasks(tasksList.gettasksList());
 
-function displayTask() {
-  tasks.forEach((task) => {
-    const li = document.createElement('li');
-    li.innerText = task.description;
+  // create a new list
+  input.addEventListener('keyup', (e) => createTask(e));
 
-    ul.appendChild(li);
-  });
-}
+  // edits tasks
+  // on focusin
+  ul.addEventListener('focusin', (e) => editTask.focusIn(e));
 
-displayTask();
+  // and save on focusout
+  ul.addEventListener('focusout', (e) => editTask.focusOut(e));
+
+  // delete tasks
+  ul.addEventListener('click', (e) => removeTask(e));
+
+  // mark complete tasks
+  ul.addEventListener('change', (e) => checkComplete(e));
+
+  // clear complete tasks
+  btn.addEventListener('click', () => clearComplete());
+};
