@@ -14,7 +14,7 @@ function displayTask() {
     li.innerHTML = `
     <input type="checkbox" class="checkbox" />
     <div class="text-content" contenteditable="true">
-      ${description}
+      <span>${description}</span>
      <span class="delete" contenteditable="false">
       <i class='bx bx-trash'></i>
     </span>
@@ -23,13 +23,14 @@ function displayTask() {
       <i class='bx bx-dots-vertical-rounded'></i>
     </span>
     `;
-
     ul.appendChild(li);
   });
 }
 
-displayTask();
+window.onload = () => {
+  displayTask();
 
-addTask();
-editTask();
-removeTask();
+  addTask();
+  editTask();
+  removeTask();
+};

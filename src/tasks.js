@@ -17,13 +17,12 @@ const setLocalStorage = (tasks) => {
 };
 
 const appendTask = ({ description, index }) => {
-  const ul = document.querySelector('.todo');
   const li = document.createElement('li');
   li.setAttribute('data-id', index);
   li.innerHTML = `
     <input type="checkbox" class="checkbox" />
     <div class="text-content" contenteditable="true">
-      ${description}
+      <span>${description}</span>
      <span class="delete" contenteditable="false">
       <i class='bx bx-trash'></i>
     </span>
@@ -35,14 +34,26 @@ const appendTask = ({ description, index }) => {
   ul.appendChild(li);
 };
 
-// const updateId = (items) => {
-//   const newUl = document.querySelector('.todo');
-//   let counter = 1;
-//   Array.from(newUl.children).forEach((li) => {
-//     li.dataset.id = counter;
-//     counter += 1;
-//   });
-// };
+const pushTask = (description, index, completed) => {
+  const taskObj = new TaskShell(description, index, completed);
+  taskList.push(taskObj);
+
+  setLocalStorage(taskList);
+  appendTask(taskObj);
+};
+
+const updateStorage = () => {
+  const newUl = document.querySelector('.todo');
+  taskList = [];
+
+  Array.from(newUl.children).forEach((li, index) => {
+    const desc = li.querySelector('.text-content span').textContent;
+    const taskObj = new TaskShell(desc, index + 1, false);
+    taskList.push(taskObj);
+  });
+
+  setLocalStorage(taskList);
+};
 
 export const addTask = () => {
   input.addEventListener('keyup', (e) => {
@@ -51,17 +62,10 @@ export const addTask = () => {
 
       if (/^\s*$/.test(e.target.value)) {
         err.innerText = 'Task cannot be empty';
+        err.classList.add('p-4');
       } else {
         err.innerText = '';
-        const taskObj = new TaskShell(
-          e.target.value,
-          taskList.length + 1,
-          false
-        );
-        taskList.push(taskObj);
-
-        setLocalStorage(taskList);
-        appendTask(taskObj);
+        pushTask(e.target.value, taskList.length + 1, false);
         e.target.value = '';
       }
     }
@@ -73,19 +77,17 @@ export const removeTask = () => {
     const { target } = e;
     if (target.className.includes('delete')) {
       const parent = target.parentNode.parentNode;
-      taskList = taskList
-        .filter((item) => Number(parent.dataset.id) !== item.index)
-        .map((item, i) => ({ ...item, index: i + 1 }));
-      setLocalStorage(taskList);
       parent.remove();
-      // updateId(taskList);
+      updateStorage();
     }
   });
 };
 
 export const editTask = () => {
   ul.addEventListener('focusin', (e) => {
-    e.target.parentNode.classList.add('edit');
+    if (e.target.className.includes('text-content')) {
+      e.target.parentNode.classList.add('edit');
+    }
   });
 
   ul.addEventListener('focusout', (e) => {
