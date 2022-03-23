@@ -9,7 +9,6 @@ import {
 import { renderTasks } from './displayTasks.js';
 import { createTask, editTask, removeTask } from './tasks.js';
 import { checkComplete, clearComplete } from './checks.js';
-import handleDragDrop from './dragDrop.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   // render initial listing
@@ -33,7 +32,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // clear complete tasks
   btn.addEventListener('click', () => clearComplete());
-
-  // drag and drop
-  handleDragDrop(ul);
 });
