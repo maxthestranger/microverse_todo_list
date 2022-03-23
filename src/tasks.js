@@ -3,7 +3,7 @@ import { tasksList } from './queries.js';
 import { appendTask, renderTasks } from './displayTasks.js';
 
 // list object blueprint
-class TaskShell {
+export class TaskShell {
   constructor(description, index, completed) {
     this.description = description;
     this.index = index;

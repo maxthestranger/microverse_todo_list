@@ -96,6 +96,16 @@ body {
   gap: 3%;
 }
 
+.todo li.hint {
+  border: 1px solid #ffc49a;
+  background: #feffb4;
+}
+
+.todo li.active {
+  border: 1px solid #ffa5a5;
+  background: #ffe7e7;
+}
+
 .line {
   text-decoration: line-through;
 }
@@ -138,7 +148,11 @@ body {
 }
 
 .drag {
-  cursor: grab;
+  cursor: move;
+}
+
+.drag.over {
+  border: 3px dotted #666;
 }
 
 .delete {
