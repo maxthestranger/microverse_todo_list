@@ -12,7 +12,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com) _link will be available once merged_
+[Todo List Preview](https://maxthestranger.github.io/microverse_todo_list/)
 
 ## Getting Started
 
