@@ -23,7 +23,7 @@ export const pushTask = (description, index, completed, ul) => {
 };
 
 // update the list index after delete
-const updateStorage = (target) => {
+const updateStorage = (target,todos,index) => {
   const parent = target.parentNode.parentNode;
   parent.remove();
 
