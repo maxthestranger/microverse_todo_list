@@ -4,6 +4,7 @@
 import { pushTask } from '../tasks.js';
 
 describe('AddingDescriptions', () => {
+  // test if it adds to the UI
   test('list length to be 1', () => {
     document.body.innerHTML = `
     <div>
@@ -20,4 +21,6 @@ describe('AddingDescriptions', () => {
     const list = document.querySelectorAll('.todo li');
     expect(list).toHaveLength(tasks.length);
   });
+
+  // TODO: test if it adds to localStorage
 });
