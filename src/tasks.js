@@ -12,14 +12,13 @@ export class TaskShell {
 }
 
 // update the UI and LocalStorage
-const pushTask = (description, index, completed) => {
+export const pushTask = (description, index, completed, ul) => {
   const taskObj = new TaskShell(description, index, completed);
   // get lists from local storage
   const updatedTaskList = tasksList.gettasksList();
   updatedTaskList.push(taskObj);
 
   tasksList.settasksList(updatedTaskList);
-  const ul = document.querySelector('.todo');
   ul.appendChild(appendTask(taskObj));
 };
 
@@ -56,7 +55,8 @@ export const createTask = (e) => {
       error.classList.add('p-4');
     } else {
       error.innerText = '';
-      pushTask(e.target.value, updatedTaskList.length + 1, false);
+      const ul = e.target.parentNode.querySelector('.todo');
+      pushTask(e.target.value, updatedTaskList.length + 1, false, ul);
       e.target.value = '';
     }
   }
