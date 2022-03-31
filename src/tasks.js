@@ -23,12 +23,10 @@ export const pushTask = (description, index, completed, ul) => {
 };
 
 // update the list index after delete
-const updateStorage = (target,updatedTaskList,index) => {
+export const updateStorage = (target, ul) => {
   const parent = target.parentNode.parentNode;
   parent.remove();
-
-  // const ul = document.querySelector('.todo');
-  // const updatedTaskList = [];
+  const updatedTaskList = [];
 
   Array.from(ul.children).forEach((li, index) => {
     const description = li.querySelector('.text-content span').textContent;
@@ -95,6 +93,7 @@ export const editTask = {
 export const removeTask = (e) => {
   const { target } = e;
   if (target.className.includes('delete')) {
-    updateStorage(target);
+    const ul = document.querySelector('.todo');
+    updateStorage(target, ul);
   }
 };
