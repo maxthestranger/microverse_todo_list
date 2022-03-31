@@ -6,7 +6,7 @@
 
 ## Screensot
 
-![screenshot]()
+![screenshot](https://raw.githubusercontent.com/maxthestranger/microverse_todo_list/testing/src/image/Screenshot%202022-03-31%20174103.png)
 
 ## Built With
 - HTML
