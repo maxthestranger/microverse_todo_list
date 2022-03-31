@@ -1,67 +1,74 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Microverse todo list project
 
-> CRUD for books app with es6
+# Todo-list
+
+> This project is about building To do list using webpack
+
+## Screensot
+
+![screenshot](https://raw.githubusercontent.com/maxthestranger/microverse_todo_list/testing/src/image/Screenshot%202022-03-31%20174103.png)
 
 ## Built With
-
-- js
-- webpack
-- html and css
-
-## Live Demo (if available)
-
-[Todo List Preview](https://maxthestranger.github.io/microverse_todo_list/)
-
+- HTML
+- CSS
+- JavaScript
+-webpack
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+This project is configure with webpack.
+## Available Scripts
 
-### Prerequisites
+In the project directory, you can run:
+### `npm install`
 
-- node js and npm
+Installs basic  dependency for the project.
+### `npm start`
 
-### Setup
+Runs the app in the development mode.\
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
-- git clone repo
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Install
+### `npm run build`
 
-- npm install
+To run Unit test run:
 
-### Usage
+### `npm test`
 
-- npm start
+Builds the app for production to the `dist` folder.\
+It correctly bundles the app in production mode and optimizes the build for the best performance.
 
-### Run tests
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Deployment
+## Live Demo
+
+Check the [Live Demo](https://maxthestranger.github.io/microverse_todo_list/) deployed on github pages.
 
 ## Authors
 
+ 
 👤 **Max The Stranger**
 
 - GitHub: [@maxthestranger](https://github.com/maxthestranger)
 - Twitter: [@maxthestranger](https://twitter.com/maxthestranger)
 - LinkedIn: [maxthestranger](https://linkedin.com/in/maxthestranger)
 
+
+
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://maxthestranger.github.io/microverse_todo_list/issues/).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE) licensed.
+

@@ -12,23 +12,20 @@ export class TaskShell {
 }
 
 // update the UI and LocalStorage
-const pushTask = (description, index, completed) => {
+export const pushTask = (description, index, completed, ul) => {
   const taskObj = new TaskShell(description, index, completed);
   // get lists from local storage
   const updatedTaskList = tasksList.gettasksList();
   updatedTaskList.push(taskObj);
 
   tasksList.settasksList(updatedTaskList);
-  const ul = document.querySelector('.todo');
   ul.appendChild(appendTask(taskObj));
 };
 
 // update the list index after delete
-const updateStorage = (target) => {
+export const updateStorage = (target, ul) => {
   const parent = target.parentNode.parentNode;
   parent.remove();
-
-  const ul = document.querySelector('.todo');
   const updatedTaskList = [];
 
   Array.from(ul.children).forEach((li, index) => {
@@ -56,7 +53,8 @@ export const createTask = (e) => {
       error.classList.add('p-4');
     } else {
       error.innerText = '';
-      pushTask(e.target.value, updatedTaskList.length + 1, false);
+      const ul = e.target.parentNode.querySelector('.todo');
+      pushTask(e.target.value, updatedTaskList.length + 1, false, ul);
       e.target.value = '';
     }
   }
@@ -95,6 +93,7 @@ export const editTask = {
 export const removeTask = (e) => {
   const { target } = e;
   if (target.className.includes('delete')) {
-    updateStorage(target);
+    const ul = document.querySelector('.todo');
+    updateStorage(target, ul);
   }
 };
