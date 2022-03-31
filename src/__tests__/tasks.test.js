@@ -4,6 +4,11 @@
 import { pushTask, updateStorage } from '../tasks.js';
 
 const tasks = ['task 1', 'task 2', 'task 3', 'task 4'];
+const focusIn = (e) => {
+  if (e.className.includes('text-content')) {
+    e.parentNode.classList.add('edit');
+  }
+};
 
 document.body.innerHTML = `
     <div>
@@ -21,6 +26,14 @@ describe('adding task to local storage and the DOM', () => {
     }
     const list = document.querySelectorAll('.todo li');
     expect(list).toHaveLength(tasks.length);
+  });
+
+  test('edit description when text content changes', () => {
+    expect(() => {
+      ul.querySelectorAll('.todo li').forEach((li) => {
+        focusIn(li);
+      });
+    }).not.toThrow(TypeError);
   });
 
   test('remove from the ul', () => {
