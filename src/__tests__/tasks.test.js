@@ -2,6 +2,7 @@
  * @jest-environment jsdom
  */
 import { pushTask, updateStorage } from '../tasks.js';
+import {checkComplete} from '../checks';
 
 const tasks = ['task 1', 'task 2', 'task 3', 'task 4'];
 
@@ -31,6 +32,15 @@ describe('adding task to local storage and the DOM', () => {
     updateStorage(target, ul);
 
     list = document.querySelectorAll('.todo li');
+    expect(list).toHaveLength(3);
+  });
+
+  test ('Clear all completed',()=>{
+    let list = document.querySelectorAll('.todo li');
+    list = Array.from(list);
+    list[0].checkComplete=true;
+    const target = list[0].querySelector('.checkbox');
+    checkComplete(target);
     expect(list).toHaveLength(3);
   });
 });
